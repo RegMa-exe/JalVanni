@@ -153,6 +153,14 @@ npm run build   # type-check + Vite build to dist/
 npm start       # Node server: dist/ + /api/* on http://localhost:8787
 ```
 
+### Deploy to Vercel
+The repo includes `vercel.json` and serverless functions in `api/` that wrap the same server handlers.
+1. Import the GitHub repo in Vercel (framework preset: **Vite**; build `npm run build`; output `dist`).
+2. In **Project → Settings → Environment Variables** add `GNANI_API_KEY`, `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` (not `PORT`), then redeploy.
+3. Client-side routes (`/voice`, `/analysis`, `/work-orders`) are rewritten to `index.html`; `/api/*` runs as functions (max duration 60 s).
+
+Vercel limits request bodies to 4.5 MB, so uploads near the app's 10 MB limit will be rejected there; recordings (≤ 30 s WAV ≈ 1 MB) are fine.
+
 ## API
 
 | Method | Path | Description |
