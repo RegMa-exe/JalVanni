@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment / secrets — never commit real values
+.env
+.env.*
+!.env.example
+
+# Credentials and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+id_rsa*
+credentials*.json
+service-account*.json
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# Temporary / OS / editor files
+tmp/
+temp/
+*.tmp
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local tooling (machine-specific launch config)
+.claude/
